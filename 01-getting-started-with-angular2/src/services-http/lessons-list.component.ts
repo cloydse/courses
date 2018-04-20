@@ -1,5 +1,5 @@
 
-import {Component, Input} from "@angular/core";
+import {Component, Input, ChangeDetectionStrategy} from "@angular/core";
 import {LessonsService} from "./lessons.service";
 
 
@@ -18,10 +18,14 @@ import {LessonsService} from "./lessons.service";
                     <td>
                         <button (click)="lessonsService.delete(lesson.id)">Delete</button>
                     </td>
+                    <td>
+                        <button> fake</button>
+                    </td>
                 </tr>
            </table>
 
-        `
+        `//,
+    //    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LessonsList {
 

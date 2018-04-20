@@ -10,9 +10,7 @@ import {Observable} from "rxjs/Observable";
 export class LessonsService {
     
     
-    constructor(private http: Http) {
-
-    }
+    constructor(private http: Http) {}
 
     loadLessons(search = ""): Observable<Lesson[]> {
 
@@ -21,7 +19,8 @@ export class LessonsService {
         let params: URLSearchParams = new URLSearchParams();
         params.set('search', search);
 
-        return this.http.get('/lessons', {search:params}).map(res => res.json());
+        return this.http.get('/lessons', {search:params})
+                .map(res => res.json());
     }
 
 

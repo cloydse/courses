@@ -12,14 +12,18 @@ export function initObservable() {
     const mouse$ = Observable.fromEvent(document,'mousemove')
         .filter((move:MouseEvent) => move.clientY >=200);
 
-
     const combined$ = Observable.combineLatest(mouse$, click$);
-/*
-    combined$.subscribe(
-        combined => console.log(combined[0])
-    );
 
-    */
+    const keys$ = Observable.fromEvent(document, 'keyup')
+        .do((keyUp:KeyboardEvent) => console.log(keyUp.key));
+
+
+
+ //  combined$.subscribe(
+ //      combined => console.log(combined[0])
+ //  );
+
+    
 }
 
 /*
